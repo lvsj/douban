@@ -1,5 +1,6 @@
 import 'package:douban/src/MainPage.dart';
 import 'package:flutter/material.dart';
+
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -8,7 +9,6 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-
 
 class LoginWidget extends StatefulWidget {
   @override
@@ -19,7 +19,6 @@ class _LoginWidgetState extends State<LoginWidget> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   bool enableLogin = false;
-
 
   @override
   void initState() {
@@ -92,24 +91,26 @@ class _LoginWidgetState extends State<LoginWidget> {
             height: 40,
           ),
           FlatButton(
-            padding: const EdgeInsets.symmetric(
-                vertical: 15, horizontal: 80),
-            child: Text('Login',
-              style: TextStyle(color: Colors.white, fontSize: 20),),
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 80),
+            child: Text(
+              'Login',
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
             color: enableLogin ? Colors.blue : Colors.grey.shade400,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(40)),
             ),
-            onPressed:_onLoginPress,
+            onPressed: _onLoginPress,
           ),
         ],
       ),
     );
   }
-  void _onLoginPress(){
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>MainPage()),);
+
+  void _onLoginPress() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MainPage()),
+    );
   }
-
 }
-
-

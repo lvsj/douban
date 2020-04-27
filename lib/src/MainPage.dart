@@ -16,9 +16,9 @@ class MainWidget extends StatefulWidget {
 }
 
 class _MainWidgetState extends State<MainWidget> {
-  var _pages=List<Widget>();
-  var _titles=List<String>();
-  var _bottomBarItems=List<BottomNavigationBarItem>();
+  final _pages=List<Widget>();
+  final _titles=List<String>();
+  final _bottomBarItems=List<BottomNavigationBarItem>();
   var _selectedIndex=0;
 
 
@@ -45,6 +45,7 @@ class _MainWidgetState extends State<MainWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.green,
         title:Text(_titles[_selectedIndex]),
         centerTitle: true,
       ),

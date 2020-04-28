@@ -1,4 +1,8 @@
+import 'package:douban/src/model/movies.dart';
+import 'package:douban/src/model/subjects.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
 
 class HomePage extends StatelessWidget {
   @override
@@ -34,9 +38,30 @@ class HomePage extends StatelessWidget {
                 ),
               )
             ],
-          )
+          ),
+          ListView.builder(scrollDirection: Axis.horizontal,itemBuilder:(context,index){
+            return Column(
+              children: <Widget>[
+                Image.network('src',width: 60,height: 100,),
+                Text('name'),
+                Row(
+
+                )
+              ],
+            );
+          })
         ],
       ),
     );
+  }
+
+  Future<List<Subjects>> _getInTheaterMovies() async{
+   final response= await http.get('https://douban.uieee.com/v2/movie/in_theaters');
+   if(response.statusCode==200){
+     final movies=Movies.fromJson(convert.jsonDecode(response.body));
+     return movies.subjects;
+   }else{
+      return null;
+   }
   }
 }

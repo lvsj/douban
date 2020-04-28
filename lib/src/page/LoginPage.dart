@@ -1,4 +1,4 @@
-import 'package:douban/src/MainPage.dart';
+import 'package:douban/src/page/MainPage.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
